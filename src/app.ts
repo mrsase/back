@@ -1,10 +1,10 @@
-// index.js
+// index.ts
 
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const http = require("http");
-const dotenv = require("dotenv");
+import express, { Request, Response } from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import http from "http";
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -15,8 +15,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Test route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to the backend of your car maintenance app!" });
+app.get("/", (req: Request, res: Response) => {
+  res.json({
+    message: "Welcome to the backend of your car maintenance app!",
+  });
 });
 
 // Create an HTTP server and pass the Express app to it
